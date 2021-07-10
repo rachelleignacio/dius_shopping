@@ -1,5 +1,7 @@
 package models
 
+import kotlin.math.floor
+
 sealed class PricingRule {
     // takes in the total list of scanned items, and returns the amount to discount from the total
     abstract fun apply(items: Map<Product, Int>): Double
@@ -13,7 +15,7 @@ sealed class PricingRule {
             if (numAppleTvs < 3) return 0.0
 
             // for every 3 Apple TVs, discount the price of 1
-            val multiplesOf3 = numAppleTvs/3.0
+            val multiplesOf3 = floor(numAppleTvs/3.0)
             return multiplesOf3 * Product.ATV.price
         }
     }

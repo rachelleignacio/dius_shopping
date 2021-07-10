@@ -5,6 +5,4 @@ enum class Product(val itemName: String, val price: Double) {
     MBP("MacBook Pro", 1399.99),
     ATV("Apple TV", 109.50),
     VGA("VGA Adapter", 30.00);
-
-    val sku = this.name.toLowerCase()
 }

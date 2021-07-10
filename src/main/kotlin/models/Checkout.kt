@@ -8,13 +8,13 @@ class Checkout(private val rules: ArrayList<PricingRule>) {
         items[item] = itemCount + 1
     }
 
-    fun total() {
+    fun total(): String {
         // calculate normal total, and then determine discounts based on rules applied
         var discountAmount = 0.0
         for (rule in rules) {
             discountAmount+= rule.apply(items)
         }
-        println(String.format("%.2f", undiscountedTotal() - discountAmount))
+        return String.format("$%.2f", undiscountedTotal() - discountAmount)
     }
 
     private fun undiscountedTotal(): Double {
